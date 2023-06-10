@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -30,7 +31,8 @@ import edu.uchicago.gerber.capsquiz.viewmodel.QuizViewModel
 fun HomeScreen(navController: NavController, viewModel: QuizViewModel) {
 
     val playerName = viewModel.playerName
-    val activity = (LocalContext.current as? Activity)
+    val activity = (LocalContext.current as Activity)
+    val focusManager = LocalFocusManager.current
 
     Scaffold(
         //define the padding at the root
@@ -78,7 +80,7 @@ fun HomeScreen(navController: NavController, viewModel: QuizViewModel) {
                         imeAction = ImeAction.Done
                     ),
                     keyboardActions = KeyboardActions(
-                        onDone = {}
+                        onDone = {focusManager.clearFocus()}
                     ),
                     maxLines = 1
                 )
@@ -104,7 +106,9 @@ fun HomeScreen(navController: NavController, viewModel: QuizViewModel) {
                 }
                 Spacer(modifier = Modifier.height(24.dp))
                 Button(
-                    onClick = {},
+                    onClick = {
+                        activity.finish()
+                    },
                     modifier = Modifier
                         .weight(1f)
                         .background(Color.Green)
