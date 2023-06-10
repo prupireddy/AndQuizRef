@@ -35,11 +35,12 @@ fun HomeScreen() {
                 },
             )
         }) {
-        //pass the paddingValues from Scaffold into the children to be used (or use it)
+        //pass the paddingValues from Scaffold into the children to be used
+            paddingValues ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues = it)
+                .padding(paddingValues = paddingValues)
         ) {
 
             Spacer(modifier = Modifier.height(24.dp))
