@@ -40,8 +40,18 @@ class QuizViewModel  : ViewModel() {
     val selectedOption: State<String> = _selectedOption
 
 
+    //these values used on the ResultScreen
+    private var _correctSubmissions = mutableStateOf(92)
+    val correctSubmissions: State<Int> = _correctSubmissions
+
+    private var _incorrectSubmissions = mutableStateOf(8)
+    val incorrectSubmissions: State<Int> = _incorrectSubmissions
+
+
 
     init {
+        //clear out the default values above which are used in Preview mode
+        reset()
         clearSelectedOption()
         getQuestion()
     }
@@ -109,7 +119,6 @@ class QuizViewModel  : ViewModel() {
         }
     }
 
-    //this method is called when the user clicks the submit button
     fun submitAnswer(question: Question) {
         //to update the mutable-state, we first get the value from the state, increment it,
         val nextNumber: Int = questionNumber.value + 1
@@ -118,11 +127,9 @@ class QuizViewModel  : ViewModel() {
 
         //if the user selected the correct answer
         if (question.capital == selectedOption.value) {
-            Log.d("ANSWER" ,"correct")
-            // incrementCorrect()
+            incrementCorrect()
         } else {
-            Log.d("ANSWER" ,"incorrect")
-            //incrementIncorrect()
+            incrementIncorrect()
         }
         //queue up another valid question
         getQuestion()
@@ -130,18 +137,39 @@ class QuizViewModel  : ViewModel() {
         clearSelectedOption()
     }
 
-    //this method is called when the user selects a radio button
     fun selectOption(option: String) {
         _selectedOption.value = option
 
     }
 
-    //just reset the mutableState to empty string upon new Question
     private fun clearSelectedOption() {
         _selectedOption.value = ""
     }
 
+    //////////////////////////////////
+    //methods for ResultScreen
+    //////////////////////////////////
+    fun anotherQuiz() {
+        _correctSubmissions.value = 0
+        _incorrectSubmissions.value = 0
+        _questionNumber.value = 1
+    }
 
+    fun reset() {
+        anotherQuiz()
+        _playerName.value = ""
+    }
 
+    private fun incrementCorrect() {
+        val correctSubmitted = correctSubmissions.value + 1
+        _correctSubmissions.value = correctSubmitted
+    }
+
+    private fun incrementIncorrect() {
+        val incorrectSubmitted = incorrectSubmissions.value + 1
+        _incorrectSubmissions.value = incorrectSubmitted
+    }
 
 }
+
+
