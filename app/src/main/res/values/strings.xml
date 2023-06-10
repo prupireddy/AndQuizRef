@@ -1,3 +1,98 @@
 <resources>
     <string name="app_name">capsQuiz</string>
+
+    <string-array name="countries_capitals">
+    <item>Albania|Tirana|EUR</item>
+    <item>Andorra|Andorra la Vella|EUR</item>
+    <item>Armenia|Yerevan|EUR</item>
+    <item>Austria|Vienna|EUR</item>
+    <item>Belarus|Minsk|EUR</item>
+    <item>Belgium|Brussels|EUR</item>
+    <item>Bosnia and Herzegovina|Sarajevo|EUR</item>
+    <item>Bulgaria|Sofia|EUR</item>
+    <item>Croatia|Zagreb|EUR</item>
+    <item>Cyprus|Nicosia|EUR</item>
+    <item>Czech Republic|Prague|EUR</item>
+    <item>Denmark|Copenhagen|EUR</item>
+    <item>Estonia|Tallinn|EUR</item>
+    <item>Finland|Helsinki|EUR</item>
+    <item>France|Paris|EUR</item>
+    <item>Germany|Berlin|EUR</item>
+    <item>Greece|Athens|EUR</item>
+    <item>Hungary|Budapest|EUR</item>
+    <item>Iceland|Reykjavík|EUR</item>
+    <item>Ireland|Dublin|EUR</item>
+    <item>Italy|Rome|EUR</item>
+    <item>Latvia|Riga|EUR</item>
+    <item>Liechtenstein|Vaduz|EUR</item>
+    <item>Lithuania|Vilnius|EUR</item>
+    <item>Luxembourg|Luxembourg|EUR</item>
+    <item>Republic of Macedonia|Skopje|EUR</item>
+    <item>Malta|Valletta|EUR</item>
+    <item>Moldova|Chişinău|EUR</item>
+    <item>Monaco|Monaco|EUR</item>
+    <item>Montenegro|Podgorica|EUR</item>
+    <item>Netherlands|Amsterdam and Hague|EUR</item>
+    <item>Norway|Oslo|EUR</item>
+    <item>Poland|Warsaw|EUR</item>
+    <item>Portugal|Lisbon|EUR</item>
+    <item>Romania|Bucharest|EUR</item>
+    <item>Russia|Moscow|EUR</item>
+    <item>San Marino|San Marino|EUR</item>
+    <item>Serbia|Belgrade|EUR</item>
+    <item>Slovakia|Bratislava|EUR</item>
+    <item>Slovenia|Ljubljana|EUR</item>
+    <item>Spain|Madrid|EUR</item>
+    <item>Sweden|Stockholm|EUR</item>
+    <item>Switzerland|Bern|EUR</item>
+    <item>Ukraine|Kiev|EUR</item>
+    <item>United Kingdom|London|EUR</item>
+    <item>Vatican City|Vatican City|EUR</item>
+    <item>Afghanistan|Kabul|ASA</item>
+    <item>Azerbaijan|Baku|ASA</item>
+    <item>Bahrain|Manama|ASA</item>
+    <item>Bangladesh|Dhaka|ASA</item>
+    <item>Bhutan|Thimphu|ASA</item>
+    <item>Brunei|Bandar Seri Begawan|ASA</item>
+    <item>Cambodia|Phnom Penh|ASA</item>
+    <item>China|Beijing|ASA</item>
+    <item>Georgia|Tbilisi|ASA</item>
+    <item>Taiwan|Taipei|ASA</item>
+    <item>India|New Delhi|ASA</item>
+    <item>Indonesia|Jakarta|ASA</item>
+    <item>Iran|Tehran|ASA</item>
+    <item>Iraq|Baghdad|ASA</item>
+    <item>Israel|Jerusalem|ASA</item>
+    <item>Japan|Tokyo|ASA</item>
+    <item>Jordan|Amman|ASA</item>
+    <item>Kazakhstan|Astana|ASA</item>
+    <item>North Korea|Pyongyang|ASA</item>
+    <item>South Korea|Seoul|ASA</item>
+    <item>Kuwait|Kuwait City|ASA</item>
+    <item>Kyrgyzstan|Bishkek|ASA</item>
+    <item>Laos|Vientiane|ASA</item>
+    <item>Lebanon|Beirut|ASA</item>
+    <item>Malaysia|Kuala Lumpur|ASA</item>
+    <item>Maldives|Malé|ASA</item>
+    <item>Mongolia|Ulaanbaatar|ASA</item>
+    <item>Myanmar|Naypyidaw|ASA</item>
+    <item>Nepal|Kathmandu|ASA</item>
+    <item>Oman|Muscat|ASA</item>
+    <item>Pakistan|Islamabad|ASA</item>
+    <item>Philippines|Manila|ASA</item>
+    <item>Qatar|Doha|ASA</item>
+    <item>Saudi Arabia|Riyadh|ASA</item>
+    <item>Singapore|Singapore|ASA</item>
+    <item>Sri Lanka|Sri Jayawardenepura Kotte|ASA</item>
+    <item>Syria|Damascus|ASA</item>
+    <item>Tajikistan|Dushanbe|ASA</item>
+    <item>Thailand|Bangkok|ASA</item>
+    <item>Timor-Leste|Dili|ASA</item>
+    <item>Turkey|Ankara|ASA</item>
+    <item>Turkmenistan|Aşgabat|ASA</item>
+    <item>United Arab Emirates|Abu Dhabi|ASA</item>
+    <item>Uzbekistan|Tashkent|ASA</item>
+    <item>Vietnam|Hanoi|ASA</item>
+    <item>Yemen|Sana\'a|ASA</item>
+    </string-array>
 </resources>
