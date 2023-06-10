@@ -12,14 +12,24 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import edu.uchicago.gerber.capsquiz.ui.theme.RedColor
+import edu.uchicago.gerber.quiz4class.model.Question
 
 
 @Composable
 fun QuestionScreen() {
 
 
-    val selectedOption = "Warsaw"
-    val answers = listOf("London", "Berlin", "Prague", "Warsaw", "Madrid")
+    //let's create a question
+    val question = Question("Poland", "Warsaw", "EUR")
+    //add some possible answers, including the correct one
+    question.addAnswer("London")
+    question.addAnswer("Berlin")
+    question.addAnswer("Prague")
+    question.addAnswer("Warsaw")
+    question.addAnswer("Madrid")
+
+    val selectedOption = "Berlin"
+    val answers = question.allAnswers
     val questionNumber = 5
 
 
