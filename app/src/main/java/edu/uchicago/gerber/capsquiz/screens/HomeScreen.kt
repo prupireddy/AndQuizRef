@@ -22,6 +22,8 @@ import edu.uchicago.gerber.capsquiz.ui.theme.RedColor
 @Composable
 fun HomeScreen() {
 
+    val playerName = "Adam"
+
     Scaffold(
         //define the padding at the root
         Modifier.padding(paddingValues = PaddingValues(all = 10.dp)),
@@ -59,7 +61,7 @@ fun HomeScreen() {
                     style = MaterialTheme.typography.body1
                 )
                 OutlinedTextField(
-                    value = "Adam",
+                    value = playerName,
                     onValueChange = {},
                     modifier = Modifier
                         .background(Color.Transparent)
