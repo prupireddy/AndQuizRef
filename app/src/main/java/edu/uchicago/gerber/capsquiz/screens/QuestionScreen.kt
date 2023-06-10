@@ -62,7 +62,7 @@ fun QuestionScreen() {
                     )
                     Divider()
                     Text(
-                        text = "What is the capital of Poland?",
+                        text = question.questionText,
                         modifier = Modifier.padding(horizontal = 16.dp, vertical = 24.dp),
                         style = MaterialTheme.typography.h6
                     )
