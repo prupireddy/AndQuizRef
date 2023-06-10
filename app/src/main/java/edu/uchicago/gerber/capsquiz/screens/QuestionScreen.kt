@@ -11,12 +11,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import edu.uchicago.gerber.capsquiz.ui.theme.RedColor
+import edu.uchicago.gerber.capsquiz.viewmodel.QuizViewModel
 import edu.uchicago.gerber.quiz4class.model.Question
 
 
 @Composable
-fun QuestionScreen() {
+fun QuestionScreen(navController: NavController, viewModel: QuizViewModel) {
 
 
     //let's create a question
@@ -145,6 +148,6 @@ fun QuestionScreen() {
 
 @Preview(showBackground = true)
 @Composable
-fun QuestionScreenPreview() {
-    QuestionScreen()
+fun QuestionScreenPreview(quizViewModel: QuizViewModel = QuizViewModel()) {
+    QuestionScreen(navController = rememberNavController(), viewModel= quizViewModel)
 }

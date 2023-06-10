@@ -5,10 +5,14 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import edu.uchicago.gerber.capsquiz.navigation.NavigationGraph
 import edu.uchicago.gerber.capsquiz.screens.HomeScreen
 import edu.uchicago.gerber.capsquiz.viewmodel.QuizViewModel
 
@@ -16,18 +20,18 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            HomeScreen(viewModel = QuizViewModel())
+            Surface(color = MaterialTheme.colors.background) {
+                val navController = rememberNavController()
+                NavigationGraph(navController = navController)
+            }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
 
-}
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    HomeScreen(viewModel = QuizViewModel())
+    //see individual screens for preview
 }
