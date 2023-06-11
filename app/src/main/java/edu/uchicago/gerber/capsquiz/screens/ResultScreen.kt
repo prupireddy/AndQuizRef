@@ -1,6 +1,5 @@
 package edu.uchicago.gerber.capsquiz.screens
 
-
 import android.app.Application
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -123,7 +122,45 @@ fun ResultScreen() {
                 }
             }
 
-            //insert row of buttons here
+            Row(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .weight(1f)
+                    .padding(12.dp),
+            ) {
+                Button(
+                    onClick = {
+                        //todo some behavior here
+                    },
+                    modifier = Modifier
+                        .weight(3f)
+                        .fillMaxHeight()
+                ) {
+                    Text(
+                        text = "Another Quiz", style = MaterialTheme.typography.button.copy(
+                            fontSize = 16.sp
+                        )
+                    )
+                }
+                Spacer(modifier = Modifier.width(8.dp))
+                Button(
+                    onClick = {
+                        //todo some behavior here
+                    },
+                    modifier = Modifier
+                        .weight(2f)
+                        .fillMaxHeight(),
+                    colors = ButtonDefaults.buttonColors(backgroundColor = RedColor)
+
+                ) {
+                    Text(
+                        text = "Reset", style = MaterialTheme.typography.button.copy(
+                            fontSize = 16.sp,
+                            color = Color.White
+                        )
+                    )
+                }
+            }
 
         }
     }
