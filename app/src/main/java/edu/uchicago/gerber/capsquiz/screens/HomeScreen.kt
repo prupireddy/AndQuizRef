@@ -2,6 +2,7 @@ package edu.uchicago.gerber.capsquiz.screens
 
 
 
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardActions
@@ -72,7 +73,38 @@ fun HomeScreen() {
                     maxLines = 1
                 )
             }
-
+            Spacer(modifier = Modifier.height(100.dp))
+            Column(modifier = Modifier.fillMaxWidth()) {
+                Button(
+                    onClick = {},
+                    modifier = Modifier
+                        .weight(2f)
+                        .fillMaxWidth()
+                ) {
+                    Text(
+                        text = "Start Quiz",
+                        style = MaterialTheme.typography.button.copy(
+                            fontSize = 24.sp
+                        )
+                    )
+                }
+                Spacer(modifier = Modifier.height(24.dp))
+                Button(
+                    onClick = {},
+                    modifier = Modifier
+                        .weight(1f)
+                        .background(Color.Green)
+                        .fillMaxWidth(),
+                    colors = ButtonDefaults.buttonColors(backgroundColor = RedColor)
+                ) {
+                    Text(
+                        text = "Exit", style = MaterialTheme.typography.button.copy(
+                            fontSize = 24.sp,
+                            color = Color.White
+                        )
+                    )
+                }
+            }
         }
 
     }
