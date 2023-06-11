@@ -41,6 +41,7 @@ class QuizViewModel  : ViewModel() {
 
 
     init {
+        clearSelectedOption()
         getQuestion()
     }
 
@@ -106,6 +107,37 @@ class QuizViewModel  : ViewModel() {
             _question.value = question
         }
     }
+
+    //this method is called when the user clicks the submit button
+    fun submitAnswer(question: Question) {
+        //to update the mutable-state, we first get the value from the state, increment it,
+        val nextNumber: Int = questionNumber.value + 1
+        //and then set the intermediate variable to the mutable-state
+        _questionNumber.value = nextNumber
+
+        //if the user selected the correct answer
+        if (question.capital == selectedOption.value) {
+            // incrementCorrect()
+        } else {
+            //incrementIncorrect()
+        }
+        //queue up another valid question
+        getQuestion()
+        //clear out the selected value
+        clearSelectedOption()
+    }
+
+    //this method is called when the user selects a radio button
+    fun selectOption(option: String) {
+        _selectedOption.value = option
+
+    }
+
+    //just reset the mutableState to empty string upon new Question
+    private fun clearSelectedOption() {
+        _selectedOption.value = ""
+    }
+
 
 
 
