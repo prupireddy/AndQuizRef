@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import edu.uchicago.gerber.capsquiz.navigation.Screen
 import edu.uchicago.gerber.capsquiz.ui.theme.RedColor
 import edu.uchicago.gerber.capsquiz.viewmodel.QuizViewModel
 
@@ -20,10 +21,10 @@ import edu.uchicago.gerber.capsquiz.viewmodel.QuizViewModel
 @Composable
 fun ResultScreen(navController: NavController, viewModel: QuizViewModel) {
 
-    val correctSubmissions = 46
-    val incorrectSubmissions = 5
-    val scorePercent = 92.19898989898
-    val playerName = "Adam"
+    val correctSubmissions = viewModel.correctSubmissions.value
+    val incorrectSubmissions = viewModel.incorrectSubmissions.value
+    val scorePercent = 100 * (correctSubmissions.toDouble() /  (correctSubmissions + incorrectSubmissions))
+    val playerName = viewModel.playerName.value
 
     Scaffold(
         //define the padding at the root
@@ -133,7 +134,10 @@ fun ResultScreen(navController: NavController, viewModel: QuizViewModel) {
             ) {
                 Button(
                     onClick = {
-                        //todo some behavior here
+                        viewModel.anotherQuiz()
+                        viewModel.getQuestion()
+                        navController.popBackStack(Screen.Result.route, true)
+                        navController.navigate(Screen.Question.route)
                     },
                     modifier = Modifier
                         .weight(3f)
@@ -148,7 +152,9 @@ fun ResultScreen(navController: NavController, viewModel: QuizViewModel) {
                 Spacer(modifier = Modifier.width(8.dp))
                 Button(
                     onClick = {
-                        //todo some behavior here
+                        viewModel.reset()
+                        navController.popBackStack(Screen.Result.route, true)
+                        navController.popBackStack(Screen.Question.route, true)
                     },
                     modifier = Modifier
                         .weight(2f)
