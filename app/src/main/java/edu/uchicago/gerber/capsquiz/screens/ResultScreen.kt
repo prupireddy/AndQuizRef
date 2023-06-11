@@ -54,10 +54,74 @@ fun ResultScreen() {
                     style = MaterialTheme.typography.h6
                 )
                 Divider()
+                Column(
+                    modifier = Modifier.fillMaxSize(),
+                    verticalArrangement = Arrangement.Center
+                ) {
 
-                //insert scores here
-                
-            } //end outer column
+                    Box(
+                        modifier = Modifier
+                            .padding(horizontal = 16.dp)
+                            .fillMaxWidth()
+                            .background(Color.DarkGray)
+
+                    ) {
+                        Text(
+                            text = "Correct: ${correctSubmissions}",
+                            modifier = Modifier.padding(
+                                vertical = 18.dp,
+                                horizontal = 24.dp
+                            ),
+                            style = MaterialTheme.typography.h5.copy(
+                                color = Color.Green
+                            )
+                        )
+
+                    }
+                    Spacer(modifier = Modifier.height(24.dp))
+
+                    Box(
+                        modifier = Modifier
+                            .padding(horizontal = 16.dp)
+                            .fillMaxWidth()
+                            .background(Color.DarkGray)
+
+                    ) {
+                        Text(
+                            text = "Incorrect: ${incorrectSubmissions}",
+                            modifier = Modifier.padding(
+                                vertical = 18.dp,
+                                horizontal = 24.dp
+                            ),
+                            style = MaterialTheme.typography.h5.copy(
+                                color = RedColor
+                            )
+                        )
+
+                    }
+                    Spacer(modifier = Modifier.height(24.dp))
+
+                    Box(
+                        modifier = Modifier
+                            .padding(horizontal = 16.dp)
+                            .fillMaxWidth()
+                            .background(Color.DarkGray)
+
+                    ) {
+                        Text(
+                            text = "Score: ${scorePercent.toInt()}%",
+                            modifier = Modifier.padding(
+                                vertical = 18.dp,
+                                horizontal = 24.dp
+                            ),
+                            style = MaterialTheme.typography.h5.copy(
+                                color = Color.White
+                            )
+                        )
+                    }
+
+                }
+            }
 
             //insert row of buttons here
 
