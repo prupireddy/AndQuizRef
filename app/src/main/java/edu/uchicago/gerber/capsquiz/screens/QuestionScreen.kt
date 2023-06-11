@@ -81,7 +81,47 @@ fun QuestionScreen() {
                     }
                 }
             }
-            //add row
+
+            Row(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .weight(1f)
+                    .padding(12.dp),
+            ) {
+                Button(
+                    onClick = {
+
+                    },
+                    modifier = Modifier
+                        .weight(3f)
+                        .fillMaxHeight(),
+                    enabled = true
+                ) {
+                    Text(
+                        text = "Submit", style = MaterialTheme.typography.button.copy(
+                            fontSize = 16.sp
+                        )
+                    )
+                }
+                Spacer(modifier = Modifier.width(8.dp))
+                Button(
+                    onClick = {
+
+                    },
+                    modifier = Modifier
+                        .weight(2f)
+                        .fillMaxHeight(),
+                    colors = ButtonDefaults.buttonColors(backgroundColor = RedColor)
+
+                ) {
+                    Text(
+                        text = "Quit", style = MaterialTheme.typography.button.copy(
+                            fontSize = 16.sp,
+                            color = Color.White
+                        )
+                    )
+                }
+            }
 
         }
 
