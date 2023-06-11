@@ -1,5 +1,6 @@
 package edu.uchicago.gerber.capsquiz.viewmodel
 
+import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -117,8 +118,10 @@ class QuizViewModel  : ViewModel() {
 
         //if the user selected the correct answer
         if (question.capital == selectedOption.value) {
+            Log.d("ANSWER" ,"correct")
             // incrementCorrect()
         } else {
+            Log.d("ANSWER" ,"incorrect")
             //incrementIncorrect()
         }
         //queue up another valid question

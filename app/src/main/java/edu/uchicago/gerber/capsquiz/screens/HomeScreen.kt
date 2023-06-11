@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import edu.uchicago.gerber.capsquiz.navigation.Screen
 import edu.uchicago.gerber.capsquiz.ui.theme.RedColor
 import edu.uchicago.gerber.capsquiz.viewmodel.QuizViewModel
 
@@ -86,8 +87,8 @@ fun HomeScreen(navController: NavController, viewModel: QuizViewModel) {
             Column(modifier = Modifier.fillMaxWidth()) {
                 Button(
                     onClick = {
-
-                        Toast.makeText(activity, viewModel.playerName.value, Toast.LENGTH_LONG).show()
+                        navController.navigate(Screen.Question.route)
+                        //Toast.makeText(activity, viewModel.playerName.value, Toast.LENGTH_LONG).show()
 
                     },
                     modifier = Modifier

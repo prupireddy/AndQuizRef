@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import edu.uchicago.gerber.capsquiz.navigation.Screen
 import edu.uchicago.gerber.capsquiz.ui.theme.RedColor
 import edu.uchicago.gerber.capsquiz.viewmodel.QuizViewModel
 import edu.uchicago.gerber.quiz4class.model.Question
@@ -22,18 +23,11 @@ import edu.uchicago.gerber.quiz4class.model.Question
 fun QuestionScreen(navController: NavController, viewModel: QuizViewModel) {
 
 
-    //let's create a question
-    val question = Question("Poland", "Warsaw", "EUR")
-    //add some possible answers, including the correct one
-    question.addAnswer("London")
-    question.addAnswer("Berlin")
-    question.addAnswer("Prague")
-    question.addAnswer("Warsaw")
-    question.addAnswer("Madrid")
+    val selectedOption: String = viewModel.selectedOption.value
+    val question: Question = viewModel.question.value
+    val questionNumber: Int = viewModel.questionNumber.value
+    val answers: List<String> = viewModel.question.value.allAnswers
 
-    val selectedOption = "Berlin"
-    val answers = question.allAnswers
-    val questionNumber = 5
 
 
     Scaffold(
@@ -71,10 +65,10 @@ fun QuestionScreen(navController: NavController, viewModel: QuizViewModel) {
                     )
                     answers.forEach { option ->
                         Box(modifier = Modifier
-                            .padding(10.dp)
+                            .padding(2.dp)
                             .selectable(
                                 selected = (option == selectedOption),
-                                onClick = { }
+                                onClick = { viewModel.selectOption(option = option) }
                             )) {
                             Row(
                                 modifier = Modifier
@@ -83,12 +77,12 @@ fun QuestionScreen(navController: NavController, viewModel: QuizViewModel) {
 
                             ) {
                                 RadioButton(selected = selectedOption == option, onClick = {
-
+                                    viewModel.selectOption(option = option)
                                 })
                                 Text(
                                     text = option,
                                     modifier = Modifier
-                                        .padding(horizontal = 8.dp, vertical = 12.dp),
+                                        .padding(top = 12.dp),
 
                                     style = MaterialTheme.typography.subtitle1
                                 )
@@ -105,12 +99,12 @@ fun QuestionScreen(navController: NavController, viewModel: QuizViewModel) {
                 ) {
                     Button(
                         onClick = {
-
+                            viewModel.submitAnswer(question = question)
                         },
                         modifier = Modifier
                             .weight(3f)
                             .fillMaxHeight(),
-                        enabled = true
+                        enabled = selectedOption.isNotBlank()
                     ) {
                         Text(
                             text = "Submit", style = MaterialTheme.typography.button.copy(
@@ -121,7 +115,8 @@ fun QuestionScreen(navController: NavController, viewModel: QuizViewModel) {
                     Spacer(modifier = Modifier.width(8.dp))
                     Button(
                         onClick = {
-
+                            navController.popBackStack(Screen.Question.route, true)
+                            navController.navigate(Screen.Result.route)
                         },
                         modifier = Modifier
                             .weight(2f)
