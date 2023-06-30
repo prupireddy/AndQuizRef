@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import edu.uchicago.gerber.capsquiz.CapsQuizApplication
 import edu.uchicago.gerber.capsquiz.R
+import edu.uchicago.gerber.capsquiz.model.Constants
 import edu.uchicago.gerber.capsquiz.model.Constants.CAPITAL_INDEX
 import edu.uchicago.gerber.capsquiz.model.Constants.COUNTRY_INDEX
 import edu.uchicago.gerber.capsquiz.model.Constants.PIPE
@@ -69,23 +70,15 @@ class QuizViewModel  : ViewModel() {
     //////////////////////////////////
     //this method will fetch a random item from resources array such as <item>Greece|Athens|EUR</item>
     //and then split and return it as List<String>
-    private suspend fun getPipedCountryAndCapital() : List<String> {
+    private fun getPipedCountryAndCapital() : List<String> {
 
-        //arrayDeferred is the future value returned by .async
-        val arrayDeferred = CoroutineScope(Dispatchers.IO).async {
-            CapsQuizApplication.app.resources.getStringArray(R.array.countries_capitals)
-        }
-        //calling .await() forces execution to wait until the value gets returned
-        val array = arrayDeferred.await()
-        val index: Int = Random.nextInt(array.size)
-        return array[index].split(PIPE)
+        val index: Int = Random.nextInt(Constants.COUNTRY_CAP_REGION_ARRAY.size)
+        return Constants.COUNTRY_CAP_REGION_ARRAY[index].split(PIPE)
 
     }
 
     fun getQuestion() {
 
-        //in order to update the UI, we must be on the UI aka Main thread in Android
-        viewModelScope.launch(Dispatchers.Main) {
             //gets a random country capitals from the array in resources
             val correctAnswer: List<String> = getPipedCountryAndCapital()
             //convert it into a new question object
@@ -116,7 +109,7 @@ class QuizViewModel  : ViewModel() {
             //add the correct answer
             question.addAnswer(question.capital)
             _question.value = question
-        }
+
     }
 
     fun submitAnswer(question: Question) {
