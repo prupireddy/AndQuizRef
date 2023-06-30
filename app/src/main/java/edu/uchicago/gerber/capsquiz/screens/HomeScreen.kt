@@ -72,7 +72,7 @@ fun HomeScreen(navController: NavController, viewModel: QuizViewModel) {
                 )
                 OutlinedTextField(
                     value = playerName.value,
-                    onValueChange = viewModel::setPlayerName,
+                    onValueChange = { theValue -> viewModel.setPlayerName(theValue) },
                     modifier = Modifier
                         .background(Color.Transparent)
                         .fillMaxWidth(),
